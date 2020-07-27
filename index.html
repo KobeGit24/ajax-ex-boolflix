@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script id="movie-template" type="text/x-handlebars-template">
-        <li>
-
+        <li class="single-movie">
+            <h3>
+               TITOLO: {{ title }}
+            </h3>
+            <span>
+                TITOLO ORIGINALE: {{ titleOriginal }}
+            </span>
+            <span>
+                LINGUA: {{ lenguage }}
+            </span>
+            <span>
+               VOTO: {{ vote }}
+            </span>
         </li>
-
     </script>
     <title>EX BOOLFIX</title>
 </head>
@@ -26,7 +36,7 @@
         </div>
     </header>
     <div id="movie wall" class="movie-wall">
-        <ul id="movie-list">
+        <ul id="movie-list" class="movie-list">
 
         </ul>
     </div>

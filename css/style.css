@@ -28,7 +28,19 @@ button {
 }
 
 .movie-wall {
-    height: 800px;
+    height: 100vh;
     background-color: cadetblue;
     border: 2px solid black;
+}
+
+.movie-wall>.movie-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.movie-wall>.movie-list .single-movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
