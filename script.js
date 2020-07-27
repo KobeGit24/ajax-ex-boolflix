@@ -3,89 +3,95 @@ function init() {
 }
 
 function searchApi() {
-    var input = $('.container #search');
     var btn = $('.container #btn');
-    btn.click(function () {
-        var inputVal = input.val(); 
-        var target = $('#movie-list');
-        target.html('');
-    
-        $.ajax({
-            url : 'https://api.themoviedb.org/3/search/movie?',
-            method : 'GET',
-            data : {
-                'api_key': 'aebf9ba0680152a5c118e16606ba7947',
-                'query': inputVal
-            },
-            success: function (data) {
+    btn.click(callApi);
+    $('.container #search').keyup(pressApi);
+}
 
-                var results = data.results;
-                console.log('data',data);
-                console.log('results',results);
-                var template = $('#movie-template').html();
-                var compiled = Handlebars.compile(template);
-                
-                for (var i = 0; i < results.length; i++) {
-                    var movieTitle = results[i].title;
-                    var movieOriginalTitle = results[i]['original_title'];
-                    var movielenguage = results[i]['original_language'];
-                    var movieVote = results[i]['vote_average'];
-                    var star = starVote(movieVote);
+function pressApi(event) {   
+    if (event.which==13) {
+        callApi(); 
+    }
+}
 
-                    var movieHTML = compiled({
-                        'title': movieTitle,
-                        'titleOriginal' : movieOriginalTitle,
-                        'lenguage' : movielenguage,
-                        'vote': star
-                    });
-                    
-                    target.append(movieHTML);
-                }
+
+function callApi() {
+    var input = $('.container #search');
+    var inputVal = input.val(); 
+    var target = $('#movie-list');
+    target.html('');
+
+    $.ajax({
+        url : 'https://api.themoviedb.org/3/search/movie?',
+        method : 'GET',
+        data : {
+            'api_key': 'aebf9ba0680152a5c118e16606ba7947',
+            'query': inputVal
+        },
+        success: function (data) {
+
+            var results = data.results;
+            var template = $('#movie-template').html();
+            var compiled = Handlebars.compile(template);
+            
+            for (var i = 0; i < results.length; i++) {
+                var movieTitle = results[i].title;
+                var movieOriginalTitle = results[i]['original_title'];
+                var movielenguage = results[i]['original_language'];
+                var movieVote = results[i]['vote_average'];
+
+                var movieHTML = compiled({
+                    'title': movieTitle,
+                    'titleOriginal' : movieOriginalTitle,
+                    'lenguage' : movielenguage,
+                    'vote': movieVote
+                });
                 
-            },
-            error: function (error) {
-                console.log(error);
+                target.append(movieHTML);
             }
+            
+        },
+        error: function (error) {
+            console.log(error);
+        }
 
-        });
-
-        $.ajax({
-            url : 'https://api.themoviedb.org/3/search/tv?',
-            method : 'GET',
-            data : {
-                'api_key': 'aebf9ba0680152a5c118e16606ba7947',
-                'query': inputVal
-            },
-            success: function (data) {
-
-                var results = data.results;
-                var template = $('#movie-template').html();
-                var compiled = Handlebars.compile(template);
-                
-                for (var i = 0; i < results.length; i++) {
-                    var seriesTitle = results[i].name;
-                    var seriesOriginalTitle = results[i]['original_name'];
-                    var movielenguage = results[i]['original_language'];
-                    var movieVote = results[i]['vote_average'];
-                    var star = starVote(movieVote);
-
-                    var seriesHTML = compiled({
-                        'title': seriesTitle,
-                        'titleOriginal' : seriesOriginalTitle,
-                        'lenguage' : movielenguage,
-                        'vote': star
-                    });
-                    
-                    target.append(seriesHTML);
-                }
-                
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-        
     });
+
+    $.ajax({
+        url : 'https://api.themoviedb.org/3/search/tv?',
+        method : 'GET',
+        data : {
+            'api_key': 'aebf9ba0680152a5c118e16606ba7947',
+            'query': inputVal
+        },
+        success: function (data) {
+
+            var results = data.results;
+            var template = $('#movie-template').html();
+            var compiled = Handlebars.compile(template);
+            
+            for (var i = 0; i < results.length; i++) {
+                var seriesTitle = results[i].name;
+                var seriesOriginalTitle = results[i]['original_name'];
+                var movielenguage = results[i]['original_language'];
+                var movieVote = results[i]['vote_average'];
+
+                var seriesHTML = compiled({
+                    'title': seriesTitle,
+                    'titleOriginal' : seriesOriginalTitle,
+                    'lenguage' : movielenguage,
+                    'vote': movieVote
+                });
+                
+                target.append(seriesHTML);
+            }
+            
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+    
 }
 
 function starVote(x) {
