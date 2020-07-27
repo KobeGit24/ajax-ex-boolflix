@@ -84,7 +84,7 @@ function searchApi() {
                 console.log(error);
             }
         });
-        input.val("");
+        
     });
 }
 
