@@ -21,6 +21,7 @@ input {
 }
 
 button {
+    outline: none;
     padding: 15px;
     border: none;
     border: 1px solid black;
@@ -28,7 +29,7 @@ button {
 }
 
 .movie-wall {
-    padding-top: 50px;
+    padding: 50px 0;
     background-color: cadetblue;
     border: 2px solid black;
 }

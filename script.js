@@ -7,6 +7,8 @@ function searchApi() {
     var btn = $('.container #btn');
     btn.click(function () {
         var inputVal = input.val(); 
+        var target = $('#movie-list');
+        target.html('');
     
         $.ajax({
             url : 'https://api.themoviedb.org/3/search/movie?',
@@ -20,7 +22,7 @@ function searchApi() {
                 var results = data.results;
                 var template = $('#movie-template').html();
                 var compiled = Handlebars.compile(template);
-                var target = $('#movie-list');
+                
 
                 for (var i = 0; i < results.length; i++) {
                     var movieTitle = results[i].title;
@@ -44,6 +46,7 @@ function searchApi() {
             }
 
         });
+        input.val("");
     });
 }
 
