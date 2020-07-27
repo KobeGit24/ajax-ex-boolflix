@@ -11,10 +11,10 @@
     <script id="movie-template" type="text/x-handlebars-template">
         <li class="single-movie">
             <h2>
-               TITOLO: {{ title }}
+               TITOLO: {{ title }} {{ seriesTitle }}
             </h2>
             <h4>
-                TITOLO ORIGINALE: {{ titleOriginal }}
+                TITOLO ORIGINALE: {{ titleOriginal }} {{ seriesOriginalTitle }}
             </h4>
             <span>
                 LINGUA: {{ lenguage }}
@@ -37,6 +37,43 @@
     </header>
     <div id="movie wall" class="movie-wall">
         <ul id="movie-list" class="movie-list"></ul>
+    </div>
+    <div id="template">
+        <span id="one">
+            <i class="fas fa-star"></i> 
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </span>
+        <span id="two">
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </span>
+        <span id="three">
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+        </span>
+        <span id="four">
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="far fa-star"></i>
+        </span>
+        <span id="five">
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+            <i class="fas fa-star"></i> 
+        </span>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>
