@@ -115,4 +115,17 @@ function starsVote (vote) {
     return stars;
   }
 
+// function star(vote){
+//     var voteInt = Math.random(vote/2); 
+//     var star = "";
+//     for (var i=0;i<5;i++) {
+//       if (i < voteInt) {
+//         star += '<i class="fas fa-star"></i>';
+//       } else {
+//         star += '<i class="far fa-star"></i>';
+//       }
+//     }
+//     return star;
+//   }
+
 $(document).ready(init);
