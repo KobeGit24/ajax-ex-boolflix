@@ -16,10 +16,18 @@
                 TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
             </h4>
             <span>
-                LINGUA: {{ original_language }}
+                <strong>LINGUA:</strong>  
+                {{#if flag }}
+                    <img src="img/{{ flag }}.png"></img>
+                {{else}}
+                    {{ original_language }}
+                {{/if}}
             </span>
-            <span id="vote"> 
-               VOTO: {{ vote }}
+            <span> 
+                <strong>VOTO:</strong>
+              {{#each stars}}
+                <i class="{{ this }} fa-star"></i>
+              {{/each}}
             </span>
         </li>
     </script>
@@ -36,43 +44,6 @@
     </header>
     <div id="movie wall" class="movie-wall">
         <ul id="movie-list" class="movie-list"></ul>
-    </div>
-    <div id="template">
-        <span id="one">
-            <i class="fas fa-star"></i> 
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-        </span>
-        <span id="two">
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-        </span>
-        <span id="three">
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-        </span>
-        <span id="four">
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="far fa-star"></i>
-        </span>
-        <span id="five">
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-            <i class="fas fa-star"></i> 
-        </span>
     </div>
     <script type="text/javascript" src="script.js"></script>
 </body>

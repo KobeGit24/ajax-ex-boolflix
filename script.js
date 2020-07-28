@@ -33,14 +33,21 @@ function callApi() {
             var results = data.results;
             var template = $('#movie-template').html();
             var compiled = Handlebars.compile(template);
+            var flags =['de','en','es','fr','it','us','ja'];
             
             for (var i = 0; i < results.length; i++) {
 
-                var vote = results[i]['vote_average'];
-                var vote = starVote(vote);
-                var vote = vote.html();
-                console.log(vote);
-                var movieHTML = compiled(results[i]);
+                var result = results[i];
+                var vote = result.vote_average;
+                var lenguage = result.original_language;
+
+                result['stars'] = starsVote(vote);
+
+                if (flags.includes(lenguage)) {
+                    result['flag'] = lenguage;
+                }
+
+                var movieHTML = compiled(result);
                 target.append(movieHTML);
             }
             
@@ -63,14 +70,21 @@ function callApi() {
             var results = data.results;
             var template = $('#movie-template').html();
             var compiled = Handlebars.compile(template);
+            var flags =['de','en','es','fr','it','us'];
             
             for (var i = 0; i < results.length; i++) {
 
-                var vote = results[i]['vote_average'];
-                var vote = starVote(vote);
-                var vote = vote.html();
-                console.log(vote);
-                var seriesHTML = compiled(results[i]);
+                var result = results[i];
+                var vote = result.vote_average;
+                var lenguage = result.original_language;
+
+                result['stars'] = starsVote(vote);
+                
+                if (flags.includes(lenguage)) {
+                    result['flag'] = lenguage;
+                }
+
+                var seriesHTML = compiled(result);
                 target.append(seriesHTML);
             }
             
@@ -82,26 +96,21 @@ function callApi() {
     
 }
 
-function starVote(x) {
-    var starOne = $('#template>#one').clone();
-    var starTwo = $('#template>#two').clone();
-    var starThree = $('#template>#three').clone();
-    var starFour = $('#template>#four').clone();
-    var starFive = $('#template>#five').clone();
-    var x;
-    var y = Math.round(x)
-    if (y <= 1 || y == 2) {
-        x = starOne;  
-    } else if (y == 3 || y == 4) {
-        x = starTwo;   
-    } else if (y == 5 || y == 6) {
-        x = starThree;    
-    } else if (y == 7 || y == 8) {
-        x = starFour;
-    } else if (y == 9 || y == 10) {     
-        x = starFive;
+function starsVote (vote) {
+
+    var x = Math.random(vote / 2);
+    var y = 5 - x;
+  
+    var stars = [];
+  
+    for (var i = 0; i < x; i++) {
+      stars.push('fas');
     }
-    return x;
-}
+    for (var i = 0; i < y; i++) {
+      stars.push('far');
+    }
+  
+    return stars;
+  }
 
 $(document).ready(init);
