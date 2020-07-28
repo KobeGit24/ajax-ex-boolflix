@@ -1,5 +1,6 @@
 function init() {
     searchApi();
+    infoOnHover();
 }
 
 function searchApi() {
@@ -34,13 +35,12 @@ function callApi() {
             var results = data.results;
             var template = $('#movie-template').html();
             var compiled = Handlebars.compile(template);
-            var flags =['de','en','es','fr','it','us','ja'];
+            var flags =['de','en','es','fr','it','us','ja','hi','zh'];
             
             for (var i = 0; i < results.length; i++) {
 
                 var result = results[i];
                 var vote = result.vote_average;
-                // console.log(vote);
                 var lenguage = result.original_language;
 
                 result['stars'] = starsVote(vote);
@@ -78,7 +78,6 @@ function callApi() {
 
                 var result = results[i];
                 var vote = result.vote_average;
-                // console.log(vote);
                 var lenguage = result.original_language;
 
                 result['stars'] = starsVote(vote);
@@ -114,19 +113,15 @@ function starsVote (vote) {
     }
   
     return stars;
-  }
+}
 
-// function star(vote){
-//     var voteInt = Math.ceil(vote/2); 
-//     var star = "";
-//     for (var i=0;i<5;i++) {
-//       if (i < voteInt) {
-//         star += '<i class="fas fa-star"></i>';
-//       } else {
-//         star += '<i class="far fa-star"></i>';
-//       }
-//     }
-//     return star;
-//   }
+function infoOnHover() {
+
+    $(document).on('mouseenter mouseleave', '.single-movie', function (event) {
+        $(this).children('#info').slideToggle('slow');
+        $(this).children('#img').slideToggle('slow');
+    });
+    
+}
 
 $(document).ready(init);

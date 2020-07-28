@@ -82,22 +82,37 @@ button:hover {
     width: calc(100% / 4);
     padding: 20px 15px;
     border: 2px solid #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    background-color: black;
+    color: #ffffff;
 }
 
 .movie-list  .single-movie>* {
     padding: 10px;
 }
 
-#vote i {
-    color: yellow;
+.single-movie>.info {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.single-movie>span>img {
+.single-movie>.info>* {
+    padding: 35px 10px;
+    width: 100%;
+}
+
+#vote i {
+    color: goldenrod;
+}
+
+.single-movie>.info>span>img {
     width: 24px;
     vertical-align: middle;  
+}
+
+#info {
+    display: none;
 }
 

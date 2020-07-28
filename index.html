@@ -10,29 +10,34 @@
     <script id="movie-template" type="text/x-handlebars-template">
         <li class="single-movie">
             <div id="img">
+                {{#if poster_path}}
                 <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="">
-            </div>
-            <h2>
-               TITOLO: {{ title }} {{ name }}
-            </h2>
-            <h4>
-                TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
-            </h4>
-            <span>
-                <strong>LINGUA:</strong>  
-                {{#if flag }}
-                    <img src="img/{{ flag }}.png"></img>
-                {{else}}
-                    {{ original_language }}
+                {{ else }}
+                    <img src="img/404-not-found.webp" style="width: 342px; height: 513px;" alt="">
                 {{/if}}
-            </span>
-            <span id="vote"> 
-                <strong>VOTO:</strong>
-              {{#each stars}}
-                <i class="{{ this }} fa-star"></i>
-              {{/each}}
-              <!-- {{ vote }} -->
-            </span>
+            </div>
+            <div id="info" class="info">
+                <h2>
+                   TITOLO: {{ title }} {{ name }}
+                </h2>
+                <h4>
+                    TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
+                </h4>
+                <span>
+                    <strong>LINGUA:</strong>  
+                    {{#if flag }}
+                        <img src="img/{{ flag }}.png"></img>
+                    {{else}}
+                        {{ original_language }}
+                    {{/if}}
+                </span>
+                <span id="vote"> 
+                    <strong>VOTO:</strong>
+                  {{#each stars}}
+                    <i class="{{ this }} fa-star"></i>
+                  {{/each}}
+                </span>
+            </div>
         </li>
     </script>
     <title>EX BOOLFIX</title>
