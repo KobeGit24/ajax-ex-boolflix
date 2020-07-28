@@ -39,6 +39,7 @@ function callApi() {
 
                 var result = results[i];
                 var vote = result.vote_average;
+                // console.log(vote);
                 var lenguage = result.original_language;
 
                 result['stars'] = starsVote(vote);
@@ -76,6 +77,7 @@ function callApi() {
 
                 var result = results[i];
                 var vote = result.vote_average;
+                // console.log(vote);
                 var lenguage = result.original_language;
 
                 result['stars'] = starsVote(vote);
