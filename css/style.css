@@ -6,32 +6,55 @@
 
 .container{
     height: 80px;
-    border: 2px solid black;
-    background-color: #cccccc;
+    background-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
+#logo {
+    color: red;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+#search-bar {
+    display: flex;
+}
+
 input {
     outline: none;
-    padding: 15px;
+    margin: 0 5px;
+    padding: 16px;
     border: none;
     border: 1px solid black;
+    border-radius: 10px;
 }
 
 button {
     outline: none;
+    margin: 0 5px;
     padding: 15px;
     border: none;
     border: 1px solid black;
+    border-radius: 10px;
     cursor: pointer;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: red;
+    color: #ffffff;
 }
 
 .movie-wall {
+    /* height: 100vh; */
     padding: 50px 0;
-    background-color: cadetblue;
-    border: 2px solid black;
+    background-color: #cccccc;
 }
 
 .movie-wall>.movie-list {
@@ -56,21 +79,12 @@ button {
     padding: 10px;
 }
 
-#template {
-    display: none;
-}
-
-#template>span>i {
-    color: goldenrod;
-}
-
-.stars i {
+#vote i {
     color: yellow;
 }
 
-.single-movie img {
-    width: 25px;
+.single-movie>span>img {
+    width: 24px;
     vertical-align: middle;  
 }
-
 

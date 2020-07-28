@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <script id="movie-template" type="text/x-handlebars-template">
         <li class="single-movie">
+            <div id="img">
+                <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="">
+            </div>
             <h2>
                TITOLO: {{ title }} {{ name }}
             </h2>
@@ -23,7 +26,7 @@
                     {{ original_language }}
                 {{/if}}
             </span>
-            <span> 
+            <span id="vote"> 
                 <strong>VOTO:</strong>
               {{#each stars}}
                 <i class="{{ this }} fa-star"></i>
@@ -36,11 +39,16 @@
 </head>
 <body>
     <header id="header" class="container">
-        <div>
-            <input id="search" type="text" name="" value="">
+        <div id="logo">
+            BOOLFLIX
         </div>
-        <div>
-            <button id="btn">search film</button>
+        <div id="search-bar">
+            <div>
+                <input id="search" type="text" name="" value="">
+            </div>
+            <div>
+                <button id="btn">search film</button>
+            </div>
         </div>
     </header>
     <div id="movie wall" class="movie-wall">

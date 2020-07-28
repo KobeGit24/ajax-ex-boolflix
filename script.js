@@ -3,9 +3,9 @@ function init() {
 }
 
 function searchApi() {
-    var btn = $('.container #btn');
+    var btn = $('.container #search-bar #btn');
     btn.click(callApi);
-    $('.container #search').keyup(pressApi);
+    $('.container #search-bar #search').keyup(pressApi);
 }
 
 function pressApi(event) {   
@@ -16,7 +16,7 @@ function pressApi(event) {
 
 
 function callApi() {
-    var input = $('.container #search');
+    var input = $('.container #search-bar #search');
     var inputVal = input.val(); 
     var target = $('#movie-list');
     target.html('');
@@ -100,7 +100,7 @@ function callApi() {
 
 function starsVote (vote) {
 
-    var x = Math.random(vote / 2);
+    var x = Math.ceil(vote / 2);
     var y = 5 - x;
   
     var stars = [];
@@ -116,7 +116,7 @@ function starsVote (vote) {
   }
 
 // function star(vote){
-//     var voteInt = Math.random(vote/2); 
+//     var voteInt = Math.ceil(vote/2); 
 //     var star = "";
 //     for (var i=0;i<5;i++) {
 //       if (i < voteInt) {
