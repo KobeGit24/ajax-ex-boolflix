@@ -35,18 +35,12 @@ function callApi() {
             var compiled = Handlebars.compile(template);
             
             for (var i = 0; i < results.length; i++) {
-                var movieTitle = results[i].title;
-                var movieOriginalTitle = results[i]['original_title'];
-                var movielenguage = results[i]['original_language'];
-                var movieVote = results[i]['vote_average'];
 
-                var movieHTML = compiled({
-                    'title': movieTitle,
-                    'titleOriginal' : movieOriginalTitle,
-                    'lenguage' : movielenguage,
-                    'vote': movieVote
-                });
-                
+                var vote = results[i]['vote_average'];
+                var vote = starVote(vote);
+                var vote = vote.html();
+                console.log(vote);
+                var movieHTML = compiled(results[i]);
                 target.append(movieHTML);
             }
             
@@ -69,20 +63,19 @@ function callApi() {
             var results = data.results;
             var template = $('#movie-template').html();
             var compiled = Handlebars.compile(template);
+            var starOne = $('#template>#one').clone();
+            var starTwo = $('#template>#two').clone();
+            var starThree = $('#template>#three').clone();
+            var starFour = $('#template>#four').clone();
+            var starFive = $('#template>#five').clone();
             
             for (var i = 0; i < results.length; i++) {
-                var seriesTitle = results[i].name;
-                var seriesOriginalTitle = results[i]['original_name'];
-                var movielenguage = results[i]['original_language'];
-                var movieVote = results[i]['vote_average'];
 
-                var seriesHTML = compiled({
-                    'title': seriesTitle,
-                    'titleOriginal' : seriesOriginalTitle,
-                    'lenguage' : movielenguage,
-                    'vote': movieVote
-                });
-                
+                var vote = results[i]['vote_average'];
+                var vote = starVote(vote);
+                var vote = vote.html();
+                console.log(vote);
+                var seriesHTML = compiled(results[i]);
                 target.append(seriesHTML);
             }
             

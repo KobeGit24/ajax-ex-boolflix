@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script id="movie-template" type="text/x-handlebars-template">
         <li class="single-movie">
             <h2>
-               TITOLO: {{ title }} {{ seriesTitle }}
+               TITOLO: {{ title }} {{ name }}
             </h2>
             <h4>
-                TITOLO ORIGINALE: {{ titleOriginal }} {{ seriesOriginalTitle }}
+                TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
             </h4>
             <span>
-                LINGUA: {{ lenguage }}
+                LINGUA: {{ original_language }}
             </span>
-            <span>
+            <span id="vote"> 
                VOTO: {{ vote }}
             </span>
         </li>
