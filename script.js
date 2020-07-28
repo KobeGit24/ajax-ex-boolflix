@@ -19,6 +19,7 @@ function callApi() {
     var input = $('.container #search-bar #search');
     var inputVal = input.val(); 
     var target = $('#movie-list');
+    $('.movie-wall h1').hide();
     target.html('');
 
     $.ajax({

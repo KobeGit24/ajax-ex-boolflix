@@ -5,6 +5,9 @@
 }
 
 .container{
+    position: fixed;
+    width: 100%;
+    top: 0;
     height: 80px;
     background-color: black;
     display: flex;
@@ -52,9 +55,15 @@ button:hover {
 }
 
 .movie-wall {
-    /* height: 100vh; */
+    margin-top: 80px;
     padding: 50px 0;
     background-color: #cccccc;
+}
+
+.movie-wall h1 {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 40px;
 }
 
 .movie-wall>.movie-list {
