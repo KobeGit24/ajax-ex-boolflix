@@ -63,11 +63,6 @@ function callApi() {
             var results = data.results;
             var template = $('#movie-template').html();
             var compiled = Handlebars.compile(template);
-            var starOne = $('#template>#one').clone();
-            var starTwo = $('#template>#two').clone();
-            var starThree = $('#template>#three').clone();
-            var starFour = $('#template>#four').clone();
-            var starFive = $('#template>#five').clone();
             
             for (var i = 0; i < results.length; i++) {
 
