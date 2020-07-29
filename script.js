@@ -51,7 +51,7 @@ function apiOrganize(type,inputVal) {
 
                 var result = results[i];
                 var vote = result.vote_average;
-                var lenguage = result.original_language;
+                var language = result.original_language;
 
                 result.stars = starsVote(vote);
 
@@ -61,8 +61,8 @@ function apiOrganize(type,inputVal) {
                     result.type = 'Serie';
                 }
 
-                if (flags.includes(lenguage)) {
-                    result.flag = lenguage;
+                if (flags.includes(language)) {
+                    result.flag = language;
                 }
 
                 var cardHTML = compiled(result);
@@ -80,17 +80,15 @@ function apiOrganize(type,inputVal) {
 function starsVote (vote) {
 
     var x = Math.ceil(vote / 2);
-    var y = 5 - x;
-  
-    var stars = [];
-  
-    for (var i = 0; i < x; i++) {
-      stars.push('fas');
+    var stars = '';
+    for (var i = 0; i < 5; i++) {
+        if (i< x) {
+            stars+='<i class="fas fa-star"></i>';   
+        } else {
+            stars+='<i class="far fa-star"></i>';
+        }
+        
     }
-    for (var i = 0; i < y; i++) {
-      stars.push('far');
-    }
-  
     return stars;
 }
 
