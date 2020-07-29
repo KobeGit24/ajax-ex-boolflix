@@ -116,3 +116,10 @@ button:hover {
     display: none;
 }
 
+#img>p{
+    text-align: center;
+    color: chartreuse;
+    padding: 30px 5px;
+    font-style: italic;
+}
+
