@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #696969;
+    background-color: black;
 }
 
 .container{
@@ -26,7 +26,27 @@ body {
     align-items: center;
 }
 
+.left-container {
+    display: flex;
+    align-items: center;
+}
+
+#w-container i,
+#search-bar>i {
+    color: #ffffff;
+    font-size: 26px;
+    padding: 0 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#w-container i:hover,
+#search-bar>i:hover {
+    color: red; 
+}
+
 #logo {
+    padding: 3px 0 0 10px;
     color: red;
     font-size: 30px;
     font-weight: 600;
@@ -38,24 +58,16 @@ body {
     align-items: center;
 }
 
-#search-bar>i {
-    color: #ffffff;
-    font-size: 26px;
-    padding: 0 10px;
-    transition: all 0.3s;
-}
-
-#search-bar>i:hover {
-    color: red;
-}
-
 input {
     outline: none;
     margin: 0 5px;
     padding: 16px;
     border: none;
-    border: 2px solid red;
     border-radius: 10px;
+}
+
+input.border {
+    border: 2px solid red;
 }
 
 button {
@@ -63,7 +75,7 @@ button {
     margin: 0 5px;
     padding: 15px;
     border: none;
-    border: 2px solid red;
+    border: 2px solid black;
     border-radius: 10px;
     cursor: pointer;
     text-transform: capitalize;
@@ -76,6 +88,11 @@ button:hover {
     background-color: red;
     color: #ffffff;
     border: 2px solid #ffffff;
+}
+
+input,
+button {
+    display: none;
 }
 
 .movie-wall {
@@ -99,7 +116,7 @@ button:hover {
 }
 
 .movie-wall>.movie-list .single-movie {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
     border: 1px solid #ffffff;
     background-color: black;
     color: #ffffff;
@@ -107,6 +124,10 @@ button:hover {
 
 .movie-list  .single-movie>* {
     padding: 10px;
+}
+
+.movie-list>h2 {
+    display: none;
 }
 
 .single-movie>.info {
@@ -146,6 +167,10 @@ button:hover {
     color: chartreuse;
     padding: 30px 5px;
     font-style: italic;
+}
+
+#img>img {
+    height: 400px;
 }
 
 .single-movie>.info>p {
