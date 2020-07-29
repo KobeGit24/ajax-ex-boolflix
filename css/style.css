@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #cccccc;
+    background-color: #696969;
 }
 
 .container{
@@ -15,7 +15,14 @@ body {
     height: 80px;
     background-color: black;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+#w-container {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -28,6 +35,18 @@ body {
 
 #search-bar {
     display: flex;
+    align-items: center;
+}
+
+#search-bar>i {
+    color: #ffffff;
+    font-size: 26px;
+    padding: 0 10px;
+    transition: all 0.3s;
+}
+
+#search-bar>i:hover {
+    color: red;
 }
 
 input {
@@ -35,7 +54,7 @@ input {
     margin: 0 5px;
     padding: 16px;
     border: none;
-    border: 1px solid black;
+    border: 2px solid red;
     border-radius: 10px;
 }
 
@@ -44,7 +63,7 @@ button {
     margin: 0 5px;
     padding: 15px;
     border: none;
-    border: 1px solid black;
+    border: 2px solid red;
     border-radius: 10px;
     cursor: pointer;
     text-transform: capitalize;
@@ -56,22 +75,23 @@ button {
 button:hover {
     background-color: red;
     color: #ffffff;
+    border: 2px solid #ffffff;
 }
 
 .movie-wall {
-    margin-top: 80px;
+    width: 1200px;
+    margin: 80px auto 0;
     padding: 50px 0;
-    background-color: #cccccc;
 }
 
 .movie-wall h1 {
     text-align: center;
     text-transform: capitalize;
-    font-size: 40px;
+    font-size: 45px;
 }
 
 .movie-wall>.movie-list {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -79,9 +99,8 @@ button:hover {
 }
 
 .movie-wall>.movie-list .single-movie {
-    width: calc(100% / 4);
-    padding: 20px 15px;
-    border: 2px solid #ffffff;
+    width: calc(100% / 3);
+    border: 1px solid #ffffff;
     background-color: black;
     color: #ffffff;
 }
@@ -116,6 +135,12 @@ button:hover {
     display: none;
 }
 
+#img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #img>p{
     text-align: center;
     color: chartreuse;
@@ -125,7 +150,7 @@ button:hover {
 
 .single-movie>.info>p {
     letter-spacing: 2px;
-    font-size: 18px;
+    font-size: 19px;
     color: black;
     text-shadow: 
   -1px 0 #f6f6f6, 0 1px #f6f6f6, 1px 0 #f6f6f6, 0 -1px #f6f6f6;

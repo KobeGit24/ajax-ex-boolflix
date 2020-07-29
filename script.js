@@ -22,34 +22,12 @@ function callApi() {
     var target = $('#movie-list');
     $('.movie-wall h1').hide();
     target.html('');
-    apiOrganize('movie', inputVal);
-    apiOrganize('tv', inputVal);   
-}
-
-function starsVote (vote) {
-
-    var x = Math.ceil(vote / 2);
-    var y = 5 - x;
-  
-    var stars = [];
-  
-    for (var i = 0; i < x; i++) {
-      stars.push('fas');
+    if (inputVal != '') {
+        apiOrganize('movie', inputVal);
+        apiOrganize('tv', inputVal);     
+    } else {
+        alert('inserire valore nella barra di ricerca');
     }
-    for (var i = 0; i < y; i++) {
-      stars.push('far');
-    }
-  
-    return stars;
-}
-
-function infoOnHover() {
-
-    $(document).on('mouseenter mouseleave', '.single-movie', function (event) {
-        $(this).children('#info').slideToggle('slow');
-        $(this).children('#img').slideToggle('slow');
-    });
-    
 }
 
 function apiOrganize(type,inputVal) {
@@ -97,6 +75,32 @@ function apiOrganize(type,inputVal) {
         }
 
     });
+}
+
+function starsVote (vote) {
+
+    var x = Math.ceil(vote / 2);
+    var y = 5 - x;
+  
+    var stars = [];
+  
+    for (var i = 0; i < x; i++) {
+      stars.push('fas');
+    }
+    for (var i = 0; i < y; i++) {
+      stars.push('far');
+    }
+  
+    return stars;
+}
+
+function infoOnHover() {
+
+    $(document).on('mouseenter mouseleave', '.single-movie', function (event) {
+        $(this).children('#info').slideToggle('slow');
+        $(this).children('#img').slideToggle('slow');
+    });
+    
 }
 
 $(document).ready(init);
