@@ -44,6 +44,7 @@ function callApi() {
                 var lenguage = result.original_language;
 
                 result.stars = starsVote(vote);
+                result.type = 'Movie';
 
                 if (flags.includes(lenguage)) {
                     result.flag = lenguage;
@@ -81,6 +82,7 @@ function callApi() {
                 var lenguage = result.original_language;
 
                 result.stars = starsVote(vote);
+                result.type = 'Serie';
                 
                 if (flags.includes(lenguage)) {
                     result.flag = lenguage;
