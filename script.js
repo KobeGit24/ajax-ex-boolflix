@@ -43,10 +43,10 @@ function callApi() {
                 var vote = result.vote_average;
                 var lenguage = result.original_language;
 
-                result['stars'] = starsVote(vote);
+                result.stars = starsVote(vote);
 
                 if (flags.includes(lenguage)) {
-                    result['flag'] = lenguage;
+                    result.flag = lenguage;
                 }
 
                 var movieHTML = compiled(result);
@@ -80,10 +80,10 @@ function callApi() {
                 var vote = result.vote_average;
                 var lenguage = result.original_language;
 
-                result['stars'] = starsVote(vote);
+                result.stars = starsVote(vote);
                 
                 if (flags.includes(lenguage)) {
-                    result['flag'] = lenguage;
+                    result.flag = lenguage;
                 }
 
                 var seriesHTML = compiled(result);
