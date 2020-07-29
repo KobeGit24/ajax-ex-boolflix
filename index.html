@@ -27,20 +27,20 @@
                 <h4>
                     TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
                 </h4>
-                <span>
+                <div>
                     <strong>LINGUA:</strong>  
                     {{#if flag }}
-                        <img src="img/{{ flag }}.png"></img>
+                        <img src="img/{{ flag }}.png">
                     {{else}}
                         {{ original_language }}
                     {{/if}}
-                </span>
-                <span id="vote"> 
+                </div>
+                <div id="vote"> 
                     <strong>VOTO:</strong>
                   {{#each stars}}
                     <i class="{{ this }} fa-star"></i>
                   {{/each}}
-                </span>
+                </div>
             </div>
         </li>
     </script>

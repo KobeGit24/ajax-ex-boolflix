@@ -107,7 +107,7 @@ button:hover {
     color: goldenrod;
 }
 
-.single-movie>.info>span>img {
+.single-movie>.info>div>img {
     width: 24px;
     vertical-align: middle;  
 }
