@@ -20,7 +20,7 @@ body {
 }
 
 #w-container {
-    width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +35,7 @@ body {
 #search-bar>i {
     color: #ffffff;
     font-size: 26px;
-    padding: 0 10px;
+    padding: 0 20px;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -96,38 +96,36 @@ button {
 }
 
 .movie-wall {
-    width: 1200px;
-    margin: 80px auto 0;
+    margin-top: 80px;
     padding: 50px 0;
 }
 
-.movie-wall h1 {
+.movie-wall>h2 {
+    padding: 30px 0;
+    color: #ffffff;
     text-align: center;
     text-transform: capitalize;
     font-size: 45px;
 }
 
-.movie-wall>.movie-list {
+#movie-wall>.movie-list {
     width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .movie-wall>.movie-list .single-movie {
-    width: calc(100% / 4);
-    border: 1px solid #ffffff;
-    background-color: black;
+    width: calc(100% / 6);
     color: #ffffff;
+}
+
+.movie-list>h3 {
+    display: none;
 }
 
 .movie-list  .single-movie>* {
     padding: 10px;
-}
-
-.movie-list>h2 {
-    display: none;
 }
 
 .single-movie>.info {
@@ -139,7 +137,7 @@ button {
 }
 
 .single-movie>.info>* {
-    padding: 18px 10px;
+    padding: 8px 10px;
     width: 100%;
 }
 
@@ -162,15 +160,26 @@ button {
     align-items: center;
 }
 
-#img>p{
+#img>#not-found>p{
     text-align: center;
     color: chartreuse;
     padding: 30px 5px;
     font-style: italic;
 }
 
+#img>#not-found>h2{
+    text-align: center;
+    padding: 30px 5px;
+}
+
 #img>img {
     height: 400px;
+}
+
+#img>#not-found {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #ffffff;
 }
 
 .single-movie>.info>p {
@@ -181,3 +190,48 @@ button {
   -1px 0 #f6f6f6, 0 1px #f6f6f6, 1px 0 #f6f6f6, 0 -1px #f6f6f6;
 }
 
+/* MEDIA QUERY */
+
+
+
+@media all and (max-width: 1640px) {
+
+    .movie-wall>.movie-list .single-movie{
+        width: calc(100% / 5);
+    }
+
+}
+
+
+@media all and (max-width: 1400px) {
+
+    .movie-wall>.movie-list .single-movie{
+        width: calc(100% / 4);
+    }
+
+}
+
+@media all and (max-width: 1280px) {
+
+    .movie-wall>.movie-list .single-movie{
+        width: calc(100% / 3);
+    } 
+}
+
+@media all and (max-width: 835px) {
+
+    .movie-wall>.movie-list {
+        justify-content: center;
+    }
+
+    .movie-wall>.movie-list .single-movie{
+        width: calc(80% / 2);
+    } 
+}
+
+@media all and (max-width: 680px) {
+
+    .movie-wall>.movie-list .single-movie{
+        width: 100%;
+    } 
+}

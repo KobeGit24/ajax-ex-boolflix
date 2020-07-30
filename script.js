@@ -7,12 +7,12 @@ function init() {
 
 function getWallFilm () {
     $.ajax({
-        url : `https://api.themoviedb.org/3/trending/all/day?api_key=aebf9ba0680152a5c118e16606ba7947&media_type=all&time_window=day`,
+        url : `https://api.themoviedb.org/3/trending/all/week?api_key=aebf9ba0680152a5c118e16606ba7947&media_type=all&time_window=day`,
         method : 'GET',
         data : {
             'api_key': 'aebf9ba0680152a5c118e16606ba7947',
             'media_type': 'all',
-            'time_window': 'day'
+            'time_window': 'week'
         },
         success: function (data) {
 
@@ -50,7 +50,7 @@ function getSearch() {
     search.click(function () {
         $('.container #search-bar #btn').fadeIn(1000);
         $('.container #search-bar #search').fadeIn(1000);
-    });       
+    });             
 }
 
 function searchApi() {
@@ -71,13 +71,13 @@ function callApi() {
     var targetMovie = $('#movie-list');
     var targetSeries = $('#series-list');
     var targetWall = $('#wall');
-    $('.movie-wall h1').hide();
+    $('.movie-wall h2').hide();
     targetWall.html('');
     targetMovie.html('');
     targetSeries.html('');
     if (inputVal != '') {
         apiOrganize('movie', inputVal);
-        apiOrganize('tv', inputVal);     
+        apiOrganize('tv', inputVal);    
     } else {
         input.addClass('border');
     }

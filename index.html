@@ -11,13 +11,14 @@
         <li class="single-movie">
             <div id="img">
                 {{#if poster_path}}
-                <img src="https://image.tmdb.org/t/p/w185{{poster_path}}" alt="">
+                <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="">
                 {{ else }}
-                    <img src="img/404-not-found.webp" style="width: 185px;" alt="">
-                    <p>copertina non disponibile</p>
-                    <h2>
-                        TITOLO: {{ title }} {{ name }}
-                    </h2>
+                    <div id="not-found">
+                        <p>copertina non disponibile</p>
+                        <h2>
+                            TITOLO: {{ title }} {{ name }}
+                        </h2>                      
+                    </div>
                 {{/if}}
             </div>
             <div id="info" class="info">
@@ -72,12 +73,17 @@
             </div>
         </div>
     </header>
-    <div id="movie wall" class="movie-wall">
-        <!-- <h1>welcome to boolflix site!! choose your favourite film/serie.</h1> -->
-        <ul id="wall" class="movie-list"></ul>
+    <div id="movie-wall" class="movie-wall">
+        <h2>
+            i piu visti su boolflix
+        </h2>
+        <ul id="wall" class="movie-list">
+        </ul>
         <ul id="movie-list" class="movie-list">
+            <h3>Movie</h3>
         </ul>
         <ul id="series-list" class="movie-list">
+            <h3>Serie</h3>
         </ul>
     </div>
     <script type="text/javascript" src="script.js"></script>
