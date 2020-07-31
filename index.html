@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script id="movie-template" type="text/x-handlebars-template">
-        <li class="single-movie">
+        <li class="single-movie" data-db="{{ id }}">
             <div id="img">
                 {{#if poster_path}}
                 <img src="https://image.tmdb.org/t/p/w342{{poster_path}}" alt="">
                 {{ else }}
                     <div id="not-found">
                         <p>copertina non disponibile</p>
-                        <h2>
+                        <h3>
                             TITOLO: {{ title }} {{ name }}
-                        </h2>                      
+                        </h3>                      
                     </div>
                 {{/if}}
             </div>
             <div id="info" class="info">
                 <p>
-                    {{{ type }}}
+                    {{{ media_type }}}
                 </p>
-                <h2>
-                   TITOLO: {{ title }} {{ name }}
-                </h2>
-                <h4>
-                    TITOLO ORIGINALE: {{ original_title }} {{ original_name }}
-                </h4>
+                <h3>
+                TITOLO: {{ title }} {{ name }}
+                </h3>
+                <h5>
+                    TITOLO ORIGINALE: {{  original_title }} {{ original_name }}
+                </h5>
                 <div>
                     <strong>LINGUA:</strong>  
                     {{#if flag }}
@@ -41,12 +41,15 @@
                 </div>
                 <div id="vote"> 
                     <strong>VOTO:</strong>
-                  {{{ stars }}}
+                {{{ stars }}}
                 </div>
                 <div>
                     <strong>OVERVIEW:</strong>
                     {{ overview }}
                 </div>
+                <ul id="cast">
+                    <strong> CAST: </strong>
+                </ul>
             </div>
         </li>
     </script>
@@ -79,11 +82,11 @@
         </h2>
         <ul id="wall" class="movie-list">
         </ul>
+        <h4>Movie</h4>
         <ul id="movie-list" class="movie-list">
-            <h3>Movie</h3>
         </ul>
+        <h4>Serie</h4>
         <ul id="series-list" class="movie-list">
-            <h3>Serie</h3>
         </ul>
     </div>
     <script type="text/javascript" src="script.js"></script>

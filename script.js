@@ -6,6 +6,8 @@ function init() {
 }
 
 function getWallFilm () {
+
+    $('#movie-wall>h4').hide();
     $.ajax({
         url : `https://api.themoviedb.org/3/trending/all/week?api_key=aebf9ba0680152a5c118e16606ba7947&media_type=all&time_window=day`,
         method : 'GET',
@@ -28,14 +30,20 @@ function getWallFilm () {
                 var vote = result.vote_average;
                 var language = result.original_language;
 
-                result.stars = starsVote(vote);
+                result.stars = starsVote(vote);;
 
                 if (flags.includes(language)) {
                     result.flag = language;
                 }
 
+                if(result.overview.length > 150) {
+                    result.overview = result.overview.substring(0, 150) + '...';
+                }
+
                 var cardHTML = compiled(result);
                 targetWall.append(cardHTML);
+
+                printCast(result.media_type,result.id);
             }
         },
         error: function (error) {
@@ -71,15 +79,18 @@ function callApi() {
     var targetMovie = $('#movie-list');
     var targetSeries = $('#series-list');
     var targetWall = $('#wall');
-    $('.movie-wall h2').hide();
     targetWall.html('');
     targetMovie.html('');
     targetSeries.html('');
     if (inputVal != '') {
+        input.removeClass('border');
+        $('.movie-wall h2').hide();
+        $('#movie-wall>h5').show();
         apiOrganize('movie', inputVal);
-        apiOrganize('tv', inputVal);    
+        apiOrganize('tv', inputVal); 
     } else {
         input.addClass('border');
+        getWallFilm();
     }
 }
 
@@ -119,6 +130,10 @@ function apiOrganize(type,inputVal) {
                     result.flag = language;
                 }
 
+                if(result.overview.length > 150) {
+                    result.overview = result.overview.substring(0, 150) + '...';
+                }
+
                 var cardHTML = compiled(result);
 
                 if (type == 'movie') {
@@ -126,12 +141,40 @@ function apiOrganize(type,inputVal) {
                 } else if (type == 'tv') {
                     targetSeries.append(cardHTML);
                 }
+
+                printCast(type,result.id);
             }
         },
         error: function (error) {
             console.log(error);
         }
 
+    });
+}
+
+function printCast(type,id) {
+    
+    $.ajax ({
+
+        url: `https://api.themoviedb.org/3/${type}/${id}/credits`,
+        method: 'GET',
+        data: {
+            'api_key': 'aebf9ba0680152a5c118e16606ba7947'
+        },
+        success: function (data) {
+            
+            var cast = data.cast;
+            var casts = '';
+
+            for(var i=0; i<cast.length && i<4; i++) {
+                var actor = cast[i];
+                casts += ` <li>${actor.name}</li> `;
+            }
+
+            var castHtml = $(`[data-db="${id}"]`);
+            castHtml.find('#cast').append(casts);
+
+        }
     });
 }
 
@@ -152,9 +195,14 @@ function starsVote (vote) {
 
 function infoOnHover() {
 
-    $(document).on('mouseenter mouseleave', '.single-movie', function (event) {
-        $(this).children('#info').slideToggle('slow');
-        $(this).children('#img').slideToggle('slow');
+    $(document).on('mouseenter', '.single-movie', function (event) {
+        $(this).children('#img').hide();
+        $(this).children('#info').fadeIn(1000);
+    });
+
+    $(document).on('mouseleave', '.single-movie', function (event) {
+        $(this).children('#info').hide();
+        $(this).children('#img').show();
     });
     
 }
