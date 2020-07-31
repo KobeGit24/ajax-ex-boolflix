@@ -7,7 +7,7 @@ function init() {
 
 function getWallFilm () {
 
-    $('#movie-wall>h4').hide();
+    $('#movie-wall>h3').hide();
     $.ajax({
         url : `https://api.themoviedb.org/3/trending/all/week?api_key=aebf9ba0680152a5c118e16606ba7947&media_type=all&time_window=day`,
         method : 'GET',
@@ -85,7 +85,7 @@ function callApi() {
     if (inputVal != '') {
         input.removeClass('border');
         $('.movie-wall h2').hide();
-        $('#movie-wall>h5').show();
+        $('#movie-wall>h3').show();
         apiOrganize('movie', inputVal);
         apiOrganize('tv', inputVal); 
     } else {

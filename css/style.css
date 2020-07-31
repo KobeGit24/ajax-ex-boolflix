@@ -138,10 +138,10 @@ button {
     cursor: pointer;
 }
 
-#movie-wall>h5 {
+#movie-wall>h3 {
     padding: 22px;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 30px;
 }
 
 .movie-list  .single-movie>* {
@@ -173,6 +173,7 @@ button {
 #info {
     background-color: black;
     display: none;
+    margin-bottom: 30px;
 }
 
 #img {
@@ -237,6 +238,17 @@ button {
     .movie-wall>.movie-list .single-movie{
         width: calc(100% / 3);
     } 
+
+    .movie-wall>.movie-list .single-movie>#info{
+        width: 100%;
+        padding: 0 0 0 40px;
+    } 
+
+    .single-movie>.info>* {
+        padding: 5px;
+        width: 100%;
+    }
+
 }
 
 @media all and (max-width: 835px) {
@@ -248,6 +260,10 @@ button {
     .movie-wall>.movie-list .single-movie{
         width: calc(80% / 2);
     } 
+
+    .movie-wall>.movie-list .single-movie:hover {
+        transform: scale(1);
+    }
 }
 
 @media all and (max-width: 680px) {
