@@ -44,6 +44,7 @@ function getWallFilm () {
                 targetWall.append(cardHTML);
 
                 printCast(result.media_type,result.id);
+                printGenres(result.media_type,result.id);
             }
         },
         error: function (error) {
@@ -143,6 +144,7 @@ function apiOrganize(type,inputVal) {
                 }
 
                 printCast(type,result.id);
+                printGenres(type,result.id);
             }
         },
         error: function (error) {
@@ -168,7 +170,7 @@ function printCast(type,id) {
 
             for(var i=0; i<cast.length && i<4; i++) {
                 var actor = cast[i];
-                casts += ` <li>${actor.name}</li> `;
+                casts += `<li>${actor.name}</li>`;
             }
 
             var castHtml = $(`[data-db="${id}"]`);
@@ -177,6 +179,40 @@ function printCast(type,id) {
         }
     });
 }
+
+function printGenres (type, id) {
+  
+    $.ajax({
+      url: `https://api.themoviedb.org/3/${type}/${id}`,
+      method: 'GET',
+      data: {
+       'api_key': 'c089b873cc8df04b58b3abbdc34899b0',
+       'language': 'it-IT'
+      },
+      success: function(data) {
+       var genres = data.genres;
+       var genreList = '';
+       var genreHTML = $(`.single-movie[data-db="${id}"]`).find('#genres');
+       if (genres.length > 0) {
+         for (var i = 0; i < genres.length && i < 5; i++) {
+           var genreName = genres[i].name;
+           if (i == genres.length - 1 || i == 4) {
+             genreList += `${genreName}.`;
+           } else {
+            genreList += `${genreName}, `;
+           }
+         }
+       } else {
+         genreList = '--';
+       }
+       genreHTML.append(genreList);
+      },
+      error: function(error) {
+       genreHTML.text('--');
+      }
+    });
+  
+  }
 
 function starsVote (vote) {
 
